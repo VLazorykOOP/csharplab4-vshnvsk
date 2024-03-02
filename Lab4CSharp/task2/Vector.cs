@@ -4,7 +4,7 @@ namespace Task2
 {
     class VectorLong
     {
-        private long[] IntArray;
+        private long[] IntVector;
         private uint size;
         private int codeError;
         private static uint num_v1;
@@ -13,19 +13,19 @@ namespace Task2
         public VectorLong()
         {
             size = 1;
-            IntArray = new long[size];
-            IntArray[0] = 0;
+            IntVector = new long[size];
+            IntVector[0] = 0;
             num_v1++;
         }
 
         public VectorLong(uint size)
         {
             this.size = size;
-            IntArray = new long[size];
+            IntVector = new long[size];
 
             for(int i = 0; i < size; i++)
             {
-                IntArray[i] = 0;
+                IntVector[i] = 0;
             }
 
             num_v1++;
@@ -34,11 +34,11 @@ namespace Task2
         public VectorLong(uint size, long initValue)
         {
             this.size = size;
-            IntArray = new long[size];
+            IntVector = new long[size];
 
             for (int i = 0; i < size; i++)
             {
-                IntArray[i] = initValue;
+                IntVector[i] = initValue;
             }
 
             num_v1++;
@@ -57,7 +57,7 @@ namespace Task2
             for(int i = 0; i < size; i++)
             {
                 Console.Write($"Index {i}: ");
-                IntArray[i] = Convert.ToInt64(Console.ReadLine());
+                IntVector[i] = Convert.ToInt64(Console.ReadLine());
             }
         }
 
@@ -66,7 +66,7 @@ namespace Task2
             Console.WriteLine("Vector elements: ");
             for (int i = 0; i < size; i++)
             {
-                Console.WriteLine($"Index: {i}: \t{IntArray[i]}");
+                Console.WriteLine($"Index: {i}: \t{IntVector[i]}");
             }
         }
 
@@ -74,7 +74,7 @@ namespace Task2
         {
             for (int i = 0; i < size; i++)
             {
-                IntArray[i] = value;
+                IntVector[i] = value;
             }
         }
 
@@ -108,7 +108,7 @@ namespace Task2
                 else
                 {
                     codeError = 0;
-                    return IntArray[index];
+                    return IntVector[index];
                 }
             }
 
@@ -116,7 +116,7 @@ namespace Task2
             {
                 if (index >=0 && index < size)
                 {
-                    IntArray[index] = value;
+                    IntVector[index] = value;
                 }
                 else
                 {
@@ -130,7 +130,7 @@ namespace Task2
         {
             for (int i = 0; i < vector.size; i++)
             {
-                vector.IntArray[i]++;
+                vector.IntVector[i]++;
             }
             return vector;
         }
@@ -139,14 +139,14 @@ namespace Task2
         {
             for (int i = 0; i < vector.size; i++)
             {
-                vector.IntArray[i]--;
+                vector.IntVector[i]--;
             }
             return vector;
         }
 
         public static bool operator true(VectorLong vector)
         {
-            foreach(long element in vector.IntArray)
+            foreach(long element in vector.IntVector)
             {
                 if(element != 0)
                 {
@@ -158,7 +158,7 @@ namespace Task2
 
         public static bool operator false(VectorLong vector)
         {
-            foreach (long element in vector.IntArray)
+            foreach (long element in vector.IntVector)
             {
                 if (element == 0)
                 {
@@ -177,7 +177,7 @@ namespace Task2
         {
             for(int i = 0; i < vector.size; i++)
             {
-                vector.IntArray[i] = ~vector.IntArray[i];
+                vector.IntVector[i] = ~vector.IntVector[i];
             }
             return vector;
         }
